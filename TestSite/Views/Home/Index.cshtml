@@ -4,22 +4,34 @@
 
 
 
-<div class="row">
-    <div class=" col-xs-12">
-        <div class="input-group" style="width: 100%">
-            <input type="text" id="search-places" class="form-control" placeholder="What are you trying to Find" aria-describedby="basic-addon2">
 
-        </div>
-        <div id="demo"></div>
-    </div>
-</div>
 
-<div class="row">
+<div class="row content-container">
 
     <div class="col-xs-6" style="height: 500px;">
+        <div class="row">
+            <div class=" col-xs-12">
+                <div class="input-group" style="width: 100%">
+                    <input type="text" id="search-places" class="form-control" placeholder="What are you trying to Find" aria-describedby="basic-addon2">
+
+                </div>
+                <div id="demo"></div>
+            </div>
+        </div>
+
         <div id="map-canvas"></div>
     </div>
     <div class="col-xs-6">
+
+        <div class="row">
+
+            <div class="col-xs-12">
+                <button type='button' value="gas_station" class='btn btn-lg btn-success quick-search'>Gas</button>
+                <button type='button' value="food" class=' btn btn-lg btn-success quick-search'>Chant Food</button>
+                <button type='button' value="lodging" class=' btn-lg btn btn-success quick-search'>Accom</button>
+                <button type='button' value="airport,bus_station,train_station,taxi_stand" class=' btn btn-lg btn-success quick-search'>Public Transport</button>
+            </div>
+        </div>
 
         <div class="panel panel-default" style="height: 500px;">
             <!-- Default panel contents -->
@@ -40,15 +52,7 @@
         <img src="~/Content/Images/powered-by-google-on-white.png" />
     </div>
 </div>
-<div class="row">
 
-    <div class="col-xs-12">
-        <button type='button' value="gas_station" class='btn btn-success quick-search'>Gas</button>
-        <button type='button' value="food" class='btn btn-success quick-search'>Chant Food</button>
-        <button type='button' value="lodging" class='btn btn-success quick-search'>Accom</button>
-        <button type='button' value="airport,bus_station,train_station,taxi_stand" class='btn btn-success quick-search'>Public Transport</button>
-    </div>
-</div>
 
 <div id="directions-panel"></div>
 

@@ -50,3 +50,13 @@ html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
 {
     padding-bottom: 5px;
 }
+
+.content-container{
+    padding-top: 10px;
+}
+
+#search-places
+{
+    height: 46px;
+}
+
