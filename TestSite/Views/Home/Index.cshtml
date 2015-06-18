@@ -25,12 +25,20 @@
 
         <div class="row">
 
-            <div class="col-xs-12">
-                <button type='button' value="gas_station" class='btn btn-lg btn-success quick-search'>Gas</button>
-                <button type='button' value="food" class=' btn btn-lg btn-success quick-search'>Chant Food</button>
-                <button type='button' value="lodging" class=' btn-lg btn btn-success quick-search'>Accom</button>
-                <button type='button' value="airport,bus_station,train_station,taxi_stand" class=' btn btn-lg btn-success quick-search'>Public Transport</button>
-            </div>
+            
+                <div class="col-xs-3">
+                    <button type='button' value="gas_station" class='col-xs-12 btn btn-lg btn-success quick-search'>Gas</button>
+                </div>
+                <div class="col-xs-3">
+                    <button type='button' value="food" class='col-xs-12 btn btn-lg btn-success quick-search'>Chant Food</button>
+                </div>
+                <div class="col-xs-3">
+                    <button type='button' value="lodging" class='col-xs-12 btn-lg btn btn-success quick-search'>Accom</button>
+                </div>
+                <div class="col-xs-3">
+                    <button type='button' value="airport,bus_station,train_station,taxi_stand" class='col-xs-12 btn btn-lg btn-success quick-search'>Transport</button>
+                </div>
+            
         </div>
 
         <div class="panel panel-default" style="height: 500px;">
@@ -90,7 +98,7 @@
 
             if (navigator.geolocation) {
                 getLocation();
-               
+
             } else {
                 // Browser doesn't support Geolocation
                 handleNoGeolocation(false);
@@ -112,8 +120,7 @@
 
 
         }
-        function getLocation()
-        {
+        function getLocation() {
             navigator.geolocation.getCurrentPosition(function (position) {
                 origin = new google.maps.LatLng(position.coords.latitude,
                                                  position.coords.longitude);
@@ -205,9 +212,9 @@
 
         function createMarker(place) {
 
-           
 
-            
+
+
 
             var marker = new google.maps.Marker({
                 position: place.geometry.location,
