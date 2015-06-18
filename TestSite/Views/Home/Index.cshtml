@@ -8,11 +8,13 @@
 
 <div class="row content-container">
 
-    <div class="col-xs-6" style="height: 500px;">
+    <div class="col-sm-6 col-xs-8" style="height: 500px;">
         <div class="row">
             <div class=" col-xs-12">
                 <div class="input-group" style="width: 100%">
-                    <input type="text" id="search-places" class="form-control" placeholder="What are you trying to Find" aria-describedby="basic-addon2">
+                    <p>
+                        <input type="text" id="search-places" class="form-control" placeholder="What are you trying to Find" aria-describedby="basic-addon2">
+                    </p>
 
                 </div>
                 <div id="demo"></div>
@@ -21,27 +23,46 @@
 
         <div id="map-canvas"></div>
     </div>
-    <div class="col-xs-6">
+    <div class="col-sm-6 col-xs-4">
 
         <div class="row">
 
-            
-                <div class="col-xs-3">
-                    <button type='button' value="gas_station" class='col-xs-12 btn btn-lg btn-success quick-search'>Gas</button>
-                </div>
-                <div class="col-xs-3">
-                    <button type='button' value="food" class='col-xs-12 btn btn-lg btn-success quick-search'>Chant Food</button>
-                </div>
-                <div class="col-xs-3">
-                    <button type='button' value="lodging" class='col-xs-12 btn-lg btn btn-success quick-search'>Accom</button>
-                </div>
-                <div class="col-xs-3">
-                    <button type='button' value="airport,bus_station,train_station,taxi_stand" class='col-xs-12 btn btn-lg btn-success quick-search'>Transport</button>
-                </div>
-            
+
+            <div class="col-sm-3 col-xs-12">
+                <p>
+                    <button type='button' value="gas_station" class='btn btn-block  btn-lg btn-success quick-search'>Gas</button>
+                </p>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <p>
+                    <button type='button' value="food" class='btn btn-block  btn-lg btn-success quick-search'>Food</button>
+                </p>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <p>
+                    <button type='button' value="lodging" class='btn btn-block btn-lg  btn-success quick-search'>Accom</button>
+                </p>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <p>
+                    <button type='button' value="airport,bus_station,train_station,taxi_stand" class='btn btn-block  btn-lg btn-success quick-search'>Transport</button>
+                </p>
+            </div>
+
         </div>
 
-        <div class="panel panel-default" style="height: 500px;">
+        <div class="row directions-block">
+            <div class="col-xs-12">
+                <p>
+                    <button type='button' value="" class='btn btn-block  btn-lg btn-danger directions-back'>back to Results</button>
+                </p>
+            </div>
+            <div id="directions-panel" class="col-xs-12">
+                
+            </div>
+        </div>
+
+        <div class="panel panel-default results" style="height: 500px;">
             <!-- Default panel contents -->
             <div class=" panel-heading">Results</div>
             <div class="panel-body">
@@ -62,7 +83,7 @@
 </div>
 
 
-<div id="directions-panel"></div>
+
 
 
 
@@ -81,8 +102,6 @@
         var origin;
         var directionsService = new google.maps.DirectionsService();
         var directionsDisplay;
-
-
 
         function initialize() {
 
@@ -257,7 +276,16 @@
         $(document).on('click', '.result-list .btn', function () {
             // Your Code
             console.log(this.value);
+            $(".results").hide();
+            $(".directions-block").show();
             getDirections(this.value);
+
+        });
+
+        $(".directions-back").click(function () {
+
+            $(".directions-block").hide();
+            $(".results").show();
 
         });
 
