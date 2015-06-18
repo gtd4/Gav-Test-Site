@@ -58,7 +58,7 @@
                 </p>
             </div>
             <div id="directions-panel" class="col-xs-12">
-                
+
             </div>
         </div>
 
@@ -237,6 +237,12 @@
                 title: place.name,
 
             });
+
+            google.maps.event.addListener(marker, 'click', function () {
+
+                getDirections(marker.getPosition());
+            });
+
             markers.push(marker);
 
         }
@@ -272,11 +278,13 @@
         $(document).on('click', '.result-list .btn', function () {
             // Your Code
             console.log(this.value);
-            $(".results").hide();
-            $(".directions-block").show();
+            
             getDirections(this.value);
 
         });
+
+
+
 
         $(".directions-back").click(function () {
 
@@ -308,6 +316,9 @@
                     directionsDisplay.setDirections(response);
                 }
             });
+
+            $(".results").hide();
+            $(".directions-block").show();
 
         }
 
