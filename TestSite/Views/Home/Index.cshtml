@@ -40,12 +40,12 @@
             </div>
             <div class="col-sm-3 col-xs-12">
                 <p>
-                    <button type='button' value="lodging" class='btn btn-block btn-lg  btn-success quick-search'>Accom</button>
+                    <button type='button' value="laundry" class='btn btn-block btn-lg  btn-success quick-search'>Washing</button>
                 </p>
             </div>
             <div class="col-sm-3 col-xs-12">
                 <p>
-                    <button type='button' value="airport,bus_station,train_station,taxi_stand" class='btn btn-block  btn-lg btn-success quick-search'>Transport</button>
+                    <button type='button' value="grocery_or_supermarket" name="" class='btn btn-block  btn-lg btn-success quick-search'>SuperMarket</button>
                 </p>
             </div>
 
@@ -231,10 +231,6 @@
 
         function createMarker(place) {
 
-
-
-
-
             var marker = new google.maps.Marker({
                 position: place.geometry.location,
                 map: map,
@@ -318,11 +314,12 @@
         $(".quick-search").click(function () {
 
             var searchTypes = $(this).val();
-            quickSearch(searchTypes);
+            var names = $(this).attr("name");
+            quickSearch(searchTypes, names);
 
         });
 
-        function quickSearch(searchTypes) {
+        function quickSearch(searchTypes, names) {
             emptyResultsList();
             clearMarkers();
 
@@ -331,7 +328,7 @@
             var request = {
                 location: origin,
                 rankBy: google.maps.places.RankBy.DISTANCE,
-                //keyword: search,
+                name: names,
                 types: types,
             };
 
