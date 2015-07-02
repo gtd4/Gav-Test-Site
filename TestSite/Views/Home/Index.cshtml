@@ -278,8 +278,10 @@
         $(document).on('click', '.result-list .btn', function () {
             // Your Code
             console.log(this.value);
-            
+            directionsDisplay.setMap(map);
             getDirections(this.value);
+
+            
 
         });
 
@@ -288,8 +290,7 @@
 
         $(".directions-back").click(function () {
 
-            $(".directions-block").hide();
-            $(".results").show();
+            backToResults()
 
         });
 
@@ -317,6 +318,7 @@
                 }
             });
 
+            
             $(".results").hide();
             $(".directions-block").show();
 
@@ -328,6 +330,7 @@
             var names = $(this).attr("name");
             quickSearch(searchTypes, names);
 
+            
         });
 
         function quickSearch(searchTypes, names) {
@@ -348,6 +351,16 @@
             //service.textSearch(request, callback);
             service.nearbySearch(request, callback);
 
+            backToResults();
+
+            directionsDisplay.setMap(null);
+
+        }
+
+        function backToResults()
+        {
+            $(".directions-block").hide();
+            $(".results").show();
         }
 
 
