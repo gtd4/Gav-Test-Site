@@ -100,6 +100,7 @@
             if (e.keyCode == 13) {
                 
                 Search();
+                
 
             }
         });
@@ -107,6 +108,7 @@
         $(".search").click(function()
         {
             Search();
+           
         })
 
         function Search()
@@ -121,6 +123,8 @@
                 alert("Please Enter a Search Term");
                 return;
             }
+
+            backToResults();
 
             var request = {
                 location: origin,

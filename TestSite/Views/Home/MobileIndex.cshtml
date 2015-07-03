@@ -2,58 +2,57 @@
     ViewBag.Title = "Mobile Gav Corner";
 }
 
-
-
-
-
 <div class="row content-container">
+    <div class="search-section">
+        <div class="col-sm-6 col-xs-12" style="height: 500px;">
+            <div class="row">
+                <div class=" col-xs-12">
+                    <div class="input-group" style="width: 100%">
 
-    <div class="col-sm-6 col-xs-8" style="height: 500px;">
-        <div class="row">
-            <div class=" col-xs-12">
-                <div class="input-group" style="width: 100%">
-                    
-                        <input type="text" id="search-places" class="form-control" placeholder="What are you trying to Find" aria-describedby="basic-addon2">
+                        <input type="text" id="search-places" class="form-control" placeholder="What are you trying to Find">
                         <span class="input-group-btn">
-                            <button type='button' class='btn btn-lg btn-success search col-xs-3'>Find</button>
+                            <button type='button' class='btn btn-lg btn-success search'>Find</button>
                         </span>
-                    
 
+
+                    </div>
+                    <div id="demo"></div>
                 </div>
-                <div id="demo"></div>
             </div>
+
+            <div id="map-canvas"></div>
         </div>
 
-        <div id="map-canvas"></div>
+        <div class="col-sm-6 col-xs-12">
+
+            <div class="row">
+
+
+                <div class="col-sm-3 col-xs-6">
+                    <p>
+                        <button type='button' value="gas_station" class='btn btn-block  btn-lg btn-success quick-search'>Gas</button>
+                    </p>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <p>
+                        <button type='button' value="food" class='btn btn-block  btn-lg btn-success quick-search'>Food</button>
+                    </p>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <p>
+                        <button type='button' value="laundry" class='btn btn-block btn-lg  btn-success quick-search'>Washing</button>
+                    </p>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <p>
+                        <button type='button' value="grocery_or_supermarket" name="" class='btn btn-block  btn-lg btn-success quick-search'>SuperMarket</button>
+                    </p>
+                </div>
+
+            </div>
+        </div>
     </div>
-    <div class="col-sm-6 col-xs-4">
-
-        <div class="row">
-
-
-            <div class="col-sm-3 col-xs-12">
-                <p>
-                    <button type='button' value="gas_station" class='btn btn-block  btn-lg btn-success quick-search'>Gas</button>
-                </p>
-            </div>
-            <div class="col-sm-3 col-xs-12">
-                <p>
-                    <button type='button' value="food" class='btn btn-block  btn-lg btn-success quick-search'>Food</button>
-                </p>
-            </div>
-            <div class="col-sm-3 col-xs-12">
-                <p>
-                    <button type='button' value="laundry" class='btn btn-block btn-lg  btn-success quick-search'>Washing</button>
-                </p>
-            </div>
-            <div class="col-sm-3 col-xs-12">
-                <p>
-                    <button type='button' value="grocery_or_supermarket" name="" class='btn btn-block  btn-lg btn-success quick-search'>SuperMarket</button>
-                </p>
-            </div>
-
-        </div>
-
+    <div class="results-section">
         <div class="row directions-block">
             <div class="col-xs-12">
                 <p>
@@ -65,8 +64,12 @@
             </div>
         </div>
 
+
         <div class="panel panel-default results" style="height: 500px;">
             <!-- Default panel contents -->
+            <p>
+                <button type='button' value="" class='btn btn-block  btn-lg btn-danger map-back'>back</button>
+            </p>
             <div class=" panel-heading">Results</div>
             <div class="panel-body">
 
@@ -74,11 +77,13 @@
             <!-- List group -->
             <ul class="list-group result-list"></ul>
         </div>
-
-
     </div>
 
+
 </div>
+
+
+
 <div class="row">
     <div class="col-xs-12 google-logo">
         <img src="~/Content/Images/powered-by-google-on-white.png" />
@@ -94,5 +99,5 @@
 
 @section scripts
 {
-    <script src="~/Scripts/MyScripts/Search.js"></script>
+    <script src="~/Scripts/MyScripts/SearchMobile.js"></script>
 }
