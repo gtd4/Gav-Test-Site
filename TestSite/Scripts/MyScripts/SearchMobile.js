@@ -183,7 +183,7 @@ function createMarker(place) {
 
     });
 
-    google.maps.event.addListener(marker, 'click', function () {
+    google.maps.event.addListener(marker, 'mousedown', function () {
 
         getDirections(marker.getPosition());
     });
@@ -223,7 +223,7 @@ function createResultList(place) {
 $(document).on('click', '.result-list .btn', function () {
     // Your Code
     console.log(this.value);
-    directionsDisplay.setMap(map);
+    
     getDirections(this.value);
 
 
@@ -250,6 +250,8 @@ function clearMarkers() {
 function getDirections(location) {
     var start = origin;
     var end = location;
+
+    directionsDisplay.setMap(map);
 
     var request = {
         origin: start,

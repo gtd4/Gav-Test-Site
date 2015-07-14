@@ -203,7 +203,7 @@
         $(document).on('click', '.result-list .btn', function () {
             // Your Code
             console.log(this.value);
-            directionsDisplay.setMap(map);
+            
             getDirections(this.value);
 
 
@@ -236,6 +236,8 @@
                 destination: end,
                 travelMode: google.maps.TravelMode.DRIVING
             };
+
+            directionsDisplay.setMap(map);
 
             directionsService.route(request, function (response, status) {
                 if (status == google.maps.DirectionsStatus.OK) {
