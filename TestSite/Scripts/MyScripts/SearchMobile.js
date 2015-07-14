@@ -1,8 +1,4 @@
-﻿
-var x = document.getElementById("demo");
-
-
-var markers = [];
+﻿var markers = [];
 
 var service;
 var map;
@@ -12,12 +8,19 @@ var directionsDisplay;
 
 $(document).ready(function () {
     HideResults();
+    HideMap();
+   
 });
 
 $(".map-back").click(function () {
 
     HideResults();
 });
+
+function HideMap()
+{
+    $('.map-container').attr('height', 0).hide();
+}
 
 function HideSearch() {
     $(".search-section").hide();
@@ -276,6 +279,7 @@ $(".quick-search").click(function () {
     var searchTypes = $(this).val();
     var names = $(this).attr("name");
     quickSearch(searchTypes, names);
+    HideSearch()
 
 
 });
