@@ -19,18 +19,33 @@ $(".map-back").click(function () {
 
 function HideMap()
 {
-    $('.map-container').attr('height', 0).hide();
+    $('.map-container').hide();
+}
+
+function ShowMap()
+{
+    $('.map-container').show();
+}
+
+function ShowSearch()
+{
+    $(".search-section").show();
+}
+
+function ShowResults()
+{
+    $(".results-section").show();
 }
 
 function HideSearch() {
     $(".search-section").hide();
 
-    $(".results-section").show();
+    
 }
 
 function HideResults() {
     $(".results-section").hide();
-    $(".search-section").show();
+    
 }
 
 function initialize() {
