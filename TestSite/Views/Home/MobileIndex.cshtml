@@ -3,7 +3,8 @@
 }
 
 <div class="row content-container">
-    <div class="search-section">
+
+    <div class="map-section">
         <div class="map-container col-sm-6 col-xs-12" style="height: 500px;">
             <div class="row">
                 <div class=" col-xs-12">
@@ -23,6 +24,9 @@
             <div id="map-canvas"></div>
 
         </div>
+    </div>
+
+    <div class="quick-search-section">
 
         <div class="col-sm-6 col-xs-12">
 
@@ -53,13 +57,14 @@
             </div>
         </div>
     </div>
-    <div class="results-section">
+
+    <div class="directions-section">
         <div class="row directions-block">
             <div class="col-xs-12">
                 <p>
-                    <button type='button' value="" class='btn btn-block  btn-lg btn-success back-to-map'>View on Map</button>
-                    <button type='button' value="" class='btn btn-block  btn-lg btn-danger directions-back'>back to Results</button>
-                    
+                    <button type='button' value="" class='btn btn-block  btn-lg btn-success view-map'>View on Map</button>
+                    <button type='button' value="" class='btn btn-block  btn-lg btn-danger directions-back'>Results</button>
+
                 </p>
             </div>
             <div id="directions-panel" class="col-xs-12">
@@ -67,7 +72,9 @@
             </div>
         </div>
 
+    </div>
 
+    <div class="results-section">
         <div class="panel panel-default results" style="height: 500px;">
             <!-- Default panel contents -->
             <p>

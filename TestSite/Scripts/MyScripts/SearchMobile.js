@@ -9,22 +9,42 @@ var directionsDisplay;
 $(document).ready(function () {
     HideResults();
     HideMap();
+    HideDirections();
    
 });
 
 $(".map-back").click(function () {
 
     HideResults();
+    ShowQuickSearch();
 });
+
+$('.view-map').click(function () {
+
+    HideDirections();
+    ShowMap();
+})
+function HideDirections()
+{
+    $('.directions-section').hide();
+}
+
+function ShowDirections()
+{
+    $('.directions-section').show();
+}
 
 function HideMap()
 {
-    $('.map-container').hide();
+    $('.map-section').hide();
 }
 
 function ShowMap()
 {
-    $('.map-container').show();
+    $('.map-section').show();
+    google.maps.event.trigger(map, 'resize');
+    map.setCenter(origin);
+    map.setZoom(14);
 }
 
 function ShowSearch()
@@ -32,20 +52,32 @@ function ShowSearch()
     $(".search-section").show();
 }
 
+function HideSearch() {
+    $(".search-section").hide();
+
+
+}
+
 function ShowResults()
 {
     $(".results-section").show();
 }
 
-function HideSearch() {
-    $(".search-section").hide();
 
-    
-}
 
 function HideResults() {
     $(".results-section").hide();
     
+}
+
+function HideQuickSearch()
+{
+    $('.quick-search-section').hide();
+}
+
+function ShowQuickSearch()
+{
+    $('.quick-search-section').show();
 }
 
 function initialize() {
@@ -159,8 +191,6 @@ function Search() {
         return;
     }
 
-    backToResults();
-
     var request = {
         location: origin,
         rankBy: google.maps.places.RankBy.DISTANCE,
@@ -243,6 +273,8 @@ $(document).on('click', '.result-list .btn', function () {
     console.log(this.value);
     
     getDirections(this.value);
+    HideResults();
+    ShowDirections();
 
 
 
@@ -253,7 +285,8 @@ $(document).on('click', '.result-list .btn', function () {
 
 $(".directions-back").click(function () {
 
-    backToResults()
+    HideDirections();
+    ShowResults();
 
 });
 
@@ -282,11 +315,6 @@ function getDirections(location) {
             directionsDisplay.setDirections(response);
         }
     });
-
-
-    $(".results").hide();
-    $(".directions-block").show();
-
 }
 
 $(".quick-search").click(function () {
@@ -294,7 +322,8 @@ $(".quick-search").click(function () {
     var searchTypes = $(this).val();
     var names = $(this).attr("name");
     quickSearch(searchTypes, names);
-    HideSearch()
+    HideQuickSearch();
+    ShowResults();
 
 
 });
@@ -317,15 +346,9 @@ function quickSearch(searchTypes, names) {
     //service.textSearch(request, callback);
     service.nearbySearch(request, callback);
 
-    backToResults();
-
     directionsDisplay.setMap(null);
 
 }
 
-function backToResults() {
-    $(".directions-block").hide();
-    $(".results").show();
-}
 
 

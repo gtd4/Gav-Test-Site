@@ -60,11 +60,6 @@ html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
     height: 46px;
 }
 
-.directions-block
-{
-    display: none;
-}
-
 .home{
 
     color:black;
