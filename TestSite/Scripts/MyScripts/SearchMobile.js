@@ -10,8 +10,16 @@ $(document).ready(function () {
     HideResults();
     HideMap();
     HideDirections();
+    SizeMap();
    
 });
+
+function SizeMap()
+{
+    var height = $(window).height();
+    $('.map-container').css('height', height);
+    $('#map-canvas').css('height', height);
+}
 
 $(".map-back").click(function () {
 
@@ -81,7 +89,7 @@ function ShowQuickSearch()
 }
 
 function initialize() {
-
+    SizeMap();
     directionsDisplay = new google.maps.DirectionsRenderer();
 
     var mapOptions = {
