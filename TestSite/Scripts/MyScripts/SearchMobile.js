@@ -16,7 +16,7 @@ $(document).ready(function () {
 
 function SizeMap()
 {
-    var height = $(window).height();
+    var height = $(window).height() - 100;
     $('.map-container').css('height', height);
     $('#map-canvas').css('height', height);
 }
