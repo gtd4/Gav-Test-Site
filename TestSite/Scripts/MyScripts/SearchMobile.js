@@ -21,17 +21,7 @@ function SizeMap()
     $('#map-canvas').css('height', height);
 }
 
-$(".map-back").click(function () {
 
-    HideResults();
-    ShowQuickSearch();
-});
-
-$('.view-map').click(function () {
-
-    HideDirections();
-    ShowMap();
-})
 function HideDirections()
 {
     $('.directions-section').hide();
@@ -291,12 +281,30 @@ $(document).on('click', '.result-list .btn', function () {
 
 
 
-$(".directions-back").click(function () {
+$(".results-back").click(function () {
 
     HideDirections();
     ShowResults();
 
 });
+
+$(".map-back").click(function () {
+
+    HideResults();
+    ShowQuickSearch();
+});
+
+$('.directions-back').click(function () {
+
+    HideMap();
+    ShowDirections();
+});
+
+$('.view-map').click(function () {
+
+    HideDirections();
+    ShowMap();
+})
 
 
 function clearMarkers() {
